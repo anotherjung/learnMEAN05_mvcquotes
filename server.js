@@ -23,31 +23,11 @@ app.use(express.static(path.join(__dirname, "./static")));
 app.set('views', path.join(__dirname, './views'));
 app.set('view engine', 'ejs');
 
-//start routes
-//root route to render the index.ejs view
-app.get('/', function(req, res) {
-	res.render("index");
-})
-//route for form input to save into db
-app.post('/quotes', function(req, res) {
-	//create object
-	var quote = new Quote({name: req.body.name, quote: req.body.quote});
-	//save object using mongoose method
-	quote.save(function(err) {
-		if(err){
-			console.log("something went wrong");
-		} else {
-			res.redirect('/main');
-		}
-	})
-})
-//route to display data from ddb
-app.get('/main', function (req, res) {
-	Quote.find({}, function (err, quotes) {
-		res.render('main', {quotes:quotes});
-	});
-})
-//ends routes
+//start MVC1b for require
+var routes_setter = require('./server/config/routes.js');
+//invoce the function stored in routes_setter and pass it the "app" variable
+routes_setter(app);
+//ends MVC require
 
 //tell express to listen on port 
 app.listen(9999, function() {
