@@ -10,10 +10,12 @@
  <h3>Add a Quote!</h3>
  <form class='form' action='/quotes' method='post'>
 <div class="col s12 m6 l3">    
-	Name: <input class='form-control' type='text' name='name'>
+	<label for="name1">Name:</label> 
+	<input id="name1" class='form-control' type='text' name='name'>
 </div>
 <div class="col s12 m6 l3"> 
-    Quote! <textarea class='form-control' type='text' name='quote'></textarea>
+    <label for="text1">Quote</label>
+    <textarea id="text1" class='form-control' type='text' name='quote'></textarea><p></p>
 </div>    
 <div class="col s12 m6 l3"> 
     <input class= "btn green" type="submit" value="Submit">
