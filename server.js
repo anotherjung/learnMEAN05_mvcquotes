@@ -23,9 +23,9 @@ require('./server/config/mongoose.js');
 
 app.use(bodyParser.urlencoded());
 //static content
-app.use(express.static(path.join(__dirname, "./static")));
+app.use(express.static(path.join(__dirname, "./client/static")));
 //setting up ejs and our views folder
-app.set('views', path.join(__dirname, './views'));
+app.set('views', path.join(__dirname, './client/views'));
 app.set('view engine', 'ejs');
 
 	//start MVC1b require for routes
