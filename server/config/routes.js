@@ -1,11 +1,13 @@
 //MVC1a for routes
-var mongoose = require('mongoose');
-var Quote = mongoose.model('Quote');
+// var mongoose = require('mongoose');
+// var Quote = mongoose.model('Quote');
+//MVC2h moved to model
+
 //MVC2c for controller
 var quotes = require('../controllers/quotes.js');
 
 
-//start MVC1c export
+//start MVC1d export
 module.exports = function(app) {
 
 	//start routes1

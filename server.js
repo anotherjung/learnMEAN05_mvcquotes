@@ -7,18 +7,18 @@ var app = express();
 var bodyParser = require("body-parser");
 var mongoose = require('mongoose');
 
-//MVC3d moved to models
-// //start model 
-// mongoose.connect('mongodb://localhost/quotes');
-// var QuotesSchema = new mongoose.Schema({
-// 	name: String,
-// 	quote: String
-// })
-// var Quote = mongoose.model('Quote', QuotesSchema);
-// //ends model
+	//MVC3d moved to models
+	// //start model 
+	// mongoose.connect('mongodb://localhost/quotes');
+	// var QuotesSchema = new mongoose.Schema({
+	// 	name: String,
+	// 	quote: String
+	// })
+	// var Quote = mongoose.model('Quote', QuotesSchema);
+	// //ends model
 
-//MVC3e require
-require('./server/config/mongoose.js');
+	//MVC3e require
+	require('./server/config/mongoose.js');
 
 
 app.use(bodyParser.urlencoded());
