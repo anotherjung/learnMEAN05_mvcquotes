@@ -1,6 +1,8 @@
 //MVC1a for routes
 var mongoose = require('mongoose');
 var Quote = mongoose.model('Quote');
+//MVC2c for controller
+var quotes = require('../controllers/quotes.js');
 
 
 //start MVC1c export
@@ -13,22 +15,28 @@ module.exports = function(app) {
 	})
 	//route for form input to save into db
 	app.post('/quotes', function(req, res) {
-		//create object
-		var quote = new Quote({name: req.body.name, quote: req.body.quote});
-		//save object using mongoose method
-		quote.save(function(err) {
-			if(err){
-				console.log("something went wrong");
-			} else {
-				res.redirect('/main');
-			}
-		})
+		//MVC2d
+		quotes.create(req, res)
+		//MVC2e moved see controller
+		// //create object
+		// var quote = new Quote({name: req.body.name, quote: req.body.quote});
+		// //save object using mongoose method
+		// quote.save(function(err) {
+		// 	if(err){
+		// 		console.log("something went wrong");
+		// 	} else {
+		// 		res.redirect('/main');
+		// 	}
+		// })
 	})
 	//route to display data from ddb
 	app.get('/main', function (req, res) {
-		Quote.find({}, function (err, quotes) {
-			res.render('main', {quotes:quotes});
-		});
+		//MVC2f
+		quotes.show(req,res)
+		//MVC2g
+		// Quote.find({}, function (err, quotes) {
+		// 	res.render('main', {quotes:quotes});
+		// });
 	})
 	//ends routes
 
